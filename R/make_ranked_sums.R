@@ -1,4 +1,5 @@
 #' Rank ASV abundance sums for a given phyloseq object
+#'
 #' @description A function that ranks all samples in a phyloseq object by the sum of reads assigned to all ASVs in that sample (Abundance sum/Total ASV counts).
 #' @author Simeon Rossmann
 #' @param physeq a phyloseq object to rank by abundance

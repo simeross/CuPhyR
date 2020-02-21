@@ -9,19 +9,16 @@
 #' @seealso Discussion and answers in [related GitHub thread](https://github.com/joey711/phyloseq/issues/597)
 #'
 #' @param physeq a phyloseq object containing a phylogenetic tree to be rooted in an outgroup.
-#' @param root_provided option to root the phylogenetic tree of the provided phyloseq object directly.
 #'
 #' @return a rooted phylogenetic tree.
 #'
 #' @examples
-#' root_tree_in_outgroup(physeq = ps, root_provided = TRUE)
-#'
 #' phyloseq::phy_tree(ps) <- root_tree_in_outgroup(physeq = ps)
 #'
 #'@export
-root_tree_in_outgroup <- function(physeq = ps, root_provided = FALSE){
+root_tree_in_outgroup <- function(physeq = ps){
   if(requireNamespace(c("ape", "data.table"), quietly = TRUE)){
-    phylo_tree <- phyloseq::phy_tree(ps)
+    phylo_tree <- phyloseq::phy_tree(physeq)
     tree_data <- cbind(
         data.table::data.table(phylo_tree$edge),
         data.table::data.table(length = phylo_tree$edge.length)
@@ -30,10 +27,6 @@ root_tree_in_outgroup <- function(physeq = ps, root_provided = FALSE){
     # longest terminal branch as outgroup
     out_group <- tree_data[which.max(length)]$id
     new_tree <- ape::root(phylo_tree, outgroup=out_group, resolve.root=TRUE)
-    if(root_provided){
-      phyloseq::phy_tree(physeq) <- new_tree
-      message("Tree successfully rooted and provided phyloseq object updated.")
-      }
     message("Tree successfully rooted.")
   }else{
     stop("The function 'root_tree_in_outgroup' requires the packages 'ape' and 'data.table' to be installed. Please make sure those packages can be loaded.")

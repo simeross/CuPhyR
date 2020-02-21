@@ -1,11 +1,13 @@
 #' Returns a vector of ASVs belonging to groups at a taxonomic level
+#'
 #' @description A function to list ASVs belonging to a set of taxonomic terms
 #' @author Simeon Rossmann
 #' @param physeq a phyloseq object to extract ASVs/OTUs ('tax_names') from
 #' @param subv a character vector of taxonomic terms at the level of interest
 #' @param taxlvlsub a character string containing a taxonomic level present in the database
 #'
-#' @examples phyt_ASVs <- list_subset_ASVs(physeq = phyloseq_oomycetes, subv = c("Phytophthora","Phytopythium"), taxlvlsub="Genus")
+#' @examples phyt_ASVs <- list_subset_ASVs(physeq = ps, subv = c("Phytophthora","Phytopythium"), taxlvlsub="Genus")
+#' ps_phyt <- phyloseq::prune_taxa(phyt_ASVs, ps)
 #' @return a character vector of ASVs
 #' @export
 list_subset_ASVs <- function(physeq=ps, subv=c("e"), taxlvlsub="Kingdom"){

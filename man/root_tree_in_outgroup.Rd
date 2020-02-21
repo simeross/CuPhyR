@@ -4,12 +4,10 @@
 \alias{root_tree_in_outgroup}
 \title{Root phylogenetic tree of a phyloseq object}
 \usage{
-root_tree_in_outgroup(physeq = ps, root_provided = FALSE)
+root_tree_in_outgroup(physeq = ps)
 }
 \arguments{
 \item{physeq}{a phyloseq object containing a phylogenetic tree to be rooted in an outgroup.}
-
-\item{root_provided}{option to root the phylogenetic tree of the provided phyloseq object directly.}
 }
 \value{
 a rooted phylogenetic tree.
@@ -22,8 +20,6 @@ Based on answers in https://github.com/joey711/phyloseq/issues/597. The function
 'ape', 'data.table' and 'magrittr' to be installed.
 }
 \examples{
-root_tree_in_outgroup(physeq = ps, root_provided = TRUE)
-
 phyloseq::phy_tree(ps) <- root_tree_in_outgroup(physeq = ps)
 
 }
