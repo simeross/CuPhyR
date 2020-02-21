@@ -20,7 +20,8 @@ a character vector of ASVs
 A function to list ASVs belonging to a set of taxonomic terms
 }
 \examples{
-phyt_ASVs <- list_subset_ASVs(physeq = phyloseq_oomycetes, subv = c("Phytophthora","Phytopythium"), taxlvlsub="Genus")
+phyt_ASVs <- list_subset_ASVs(physeq = ps, subv = c("Phytophthora","Phytopythium"), taxlvlsub="Genus")
+ps_phyt <- phyloseq::prune_taxa(phyt_ASVs, ps)
 }
 \author{
 Simeon Rossmann
