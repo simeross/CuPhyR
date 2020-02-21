@@ -1,6 +1,6 @@
 Package: cuphyr
 Title: Custom Functions for Microbiome Analysis with Phyloseq
-Version: 0.1
+Version: 0.2
 Authors@R: 
     person(given = "Simeon",
            family = "Rossmann",
