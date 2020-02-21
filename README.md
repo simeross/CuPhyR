@@ -9,6 +9,11 @@ the function names are referring to ASVs instead of 'taxa' (phyloseq terminology
 The package is in early development. Use at your own risk, feedback welcome!
 
 # Installation
+Install the package from the GitHub repository using devtools:  
+```
+
+```
+
 
 # Info
 ## Functions contained in this package
@@ -36,8 +41,12 @@ The function requires the packages 'ape' and 'data.table' to be installed.
 Summarize the total number of ASVs, number of ASVs in a subset and percentage
 of reads this ASV subset contains (of total) of a given phyloseq object.
 
+# Dependencies
+These packages have to be installed for CuPhyR to work properly. Except for phyloseq, 
+all packages are distributed through CRAN and should be installed automatically.
 ### Packages required
-* [phyloseq](https://joey711.github.io/phyloseq/)
+* [phyloseq](https://joey711.github.io/phyloseq/)  
+installation instructions are found on the github page
 * [dplyr](https://dplyr.tidyverse.org)
 * [magrittr](https://magrittr.tidyverse.org/)
 
