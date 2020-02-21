@@ -45,8 +45,7 @@ of reads this ASV subset contains (of total) of a given phyloseq object.
 These packages have to be installed for CuPhyR to work properly. Except for phyloseq, 
 all packages are distributed through CRAN and should be installed automatically.
 ### Packages required
-* [phyloseq](https://joey711.github.io/phyloseq/)  
-installation instructions are found on the github page
+* [phyloseq](https://joey711.github.io/phyloseq/) - Check the page for installation instructions
 * [dplyr](https://dplyr.tidyverse.org)
 * [magrittr](https://magrittr.tidyverse.org/)
 
