@@ -1,13 +1,13 @@
 Package: cuphyr
-Title: Custom Functions for Microbiome Analysis
-Version: 0.1
+Title: Custom Functions for Microbiome Analysis with Phyloseq
+Version: 0.2
 Authors@R: 
     person(given = "Simeon",
            family = "Rossmann",
            role = c("aut", "cre"),
            email = "simeon.rossmann@nibio.no",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           comment = c(ORCID = "0000-0003-0435-8221"))
+Description: This package contains functions that offer customized shortcuts for interacting with phyloseq class objects generated with the Phyloseq package by Paul J. McMurdie (github.com/joey711/phyloseq). Since it is tested and developed with ASV data from the dada2 package by Bejamin Callahan (benjjneb/dada2), the function names are referring to ASVs instead of 'taxa' (phyloseq terminology). Use at your own risk, feedback welcome!
 License: CreativeCommons 3.0
 Encoding: UTF-8
 LazyData: true
