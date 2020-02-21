@@ -11,7 +11,8 @@ The package is in early development. Use at your own risk, feedback welcome!
 # Installation
 Install the package from the GitHub repository using devtools:  
 ```
-
+library(devtools)
+devtools::install_github("simeross/cuphyr"
 ```
 
 
