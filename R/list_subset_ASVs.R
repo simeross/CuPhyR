@@ -10,14 +10,14 @@
 #' @export
 list_subset_ASVs <- function(physeq=ps, subv=c("e"), taxlvlsub="Kingdom"){
   #Preparing lists of the chosen taxonomic level and searching for overlap with values in vector
-  taxlist <- tax_table(physeq)[,taxlvlsub]
-  taxcounts <- aggregate(data.frame(count=taxlist), list(value=taxlist), length)
+  taxlist <- phyloseq::tax_table(physeq)[,taxlvlsub]
+  taxcounts <- stats::aggregate(data.frame(count=taxlist), list(value=taxlist), length)
   unilist <- taxcounts$value
   hitlist <- unilist[unilist %in% grep(paste0(subv, collapse = "|"), unilist, value = T)]
   #Searching for ASVs that contain 'subv' values at 'taxlvlsub' and building subset
   ASVlist <- character(0)
   for (taxgroup in hitlist){
-    ASVlist <- c(ASVlist, rownames(subset(tax_table(physeq), tax_table(physeq)[, taxlvlsub] == taxgroup)))
+    ASVlist <- c(ASVlist, rownames(subset(phyloseq::tax_table(physeq), phyloseq::tax_table(physeq)[, taxlvlsub] == taxgroup)))
   }
   return(ASVlist)
 }
