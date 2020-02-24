@@ -22,7 +22,7 @@ root_tree_in_outgroup <- function(physeq = ps){
     tips <- ape::Ntip(phylo_tree)
     tree_data <- base::cbind(
         data.table::data.table(phylo_tree$edge),
-        data.table::data.table(length = phylo_tree$edge.length))[1:tips]
+        data.table::data.table(length = phylo_tree$edge.length))[1:tips,]
     tree_data <- base::cbind(tree_data, data.table::data.table(id = phylo_tree$tip.label))
     # longest terminal branch as outgroup
     out_group <- tree_data[which.max(length)]$id
