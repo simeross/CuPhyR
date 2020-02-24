@@ -4,7 +4,7 @@
 #' This makes results reproducible by avoiding the behaviour of some functions that would otherwise pick a
 #' random leaf as the root of an unrooted phylogenetic tree.
 #' Based on answers in https://github.com/joey711/phyloseq/issues/597. The function requires the packages
-#' 'ape', 'data.table' and 'magrittr' to be installed.
+#' 'ape' and 'data.table' to be installed.
 #' @author Simeon Rossmann
 #' @seealso Discussion and answers in [related GitHub thread](https://github.com/joey711/phyloseq/issues/597)
 #'
@@ -22,8 +22,7 @@ root_tree_in_outgroup <- function(physeq = ps){
     tips <- ape::Ntip(phylo_tree)
     tree_data <- cbind(
         data.table::data.table(phylo_tree$edge),
-        data.table::data.table(length = phylo_tree$edge.length)
-      )[1:tips] %>%
+        data.table::data.table(length = phylo_tree$edge.length))[1:tips] %>%
       cbind(data.table::data.table(id = phylo_tree$tip.label))
     # longest terminal branch as outgroup
     out_group <- tree_data[which.max(length)]$id

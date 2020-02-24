@@ -17,7 +17,7 @@ This funtion defines the leaf with the longest path as the root of the phylogene
 This makes results reproducible by avoiding the behaviour of some functions that would otherwise pick a
 random leaf as the root of an unrooted phylogenetic tree.
 Based on answers in https://github.com/joey711/phyloseq/issues/597. The function requires the packages
-'ape', 'data.table' and 'magrittr' to be installed.
+'ape' and 'data.table' to be installed.
 }
 \examples{
 phyloseq::phy_tree(ps) <- root_tree_in_outgroup(physeq = ps)
