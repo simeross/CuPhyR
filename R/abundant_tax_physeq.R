@@ -9,7 +9,7 @@
 #' @param lvl a character vector defining the taxonomic level to rank
 #' @param top an integer n defining the number of returned elements (e.g. 'top=5')
 #' @param output_format "tops" or "ps" (default), depending on this value, function returns either a character vector or a pruned phyloseq object.
-#' @param ignore_na TRUE/FALSE, default TRUE. If FALSE, includes 'NA' as a taxonomic term in the output.
+#' @param ignore_na TRUE/FALSE, default FALSE. If TRUE, excludes ASVs without assigned taxonomic term in the output.
 #' @param silent TRUE/FALSE, default TRUE. If FALSE, prints the top n taxonomix terms as a message.
 #'
 #'
@@ -18,7 +18,7 @@
 #'
 #' @return a phyloseq object or character vector, depending on value of "output_format"
 #' @export
-abundant_tax_physeq <- function(physeq = ps, lvl="Class", top=10, output_format="ps", ignore_na = TRUE, silent=TRUE){
+abundant_tax_physeq <- function(physeq = ps, lvl="Class", top=10, output_format="ps", ignore_na = FALSE, silent=TRUE){
   #This function
   if(!exists("ps_tbl")){
     ps_tbl <- phyloseq::psmelt(physeq)

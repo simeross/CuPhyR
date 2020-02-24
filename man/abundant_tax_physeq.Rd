@@ -9,7 +9,7 @@ abundant_tax_physeq(
   lvl = "Class",
   top = 10,
   output_format = "ps",
-  ignore_na = TRUE,
+  ignore_na = FALSE,
   silent = TRUE
 )
 }
@@ -22,7 +22,7 @@ abundant_tax_physeq(
 
 \item{output_format}{"tops" or "ps" (default), depending on this value, function returns either a character vector or a pruned phyloseq object.}
 
-\item{ignore_na}{TRUE/FALSE, default TRUE. If FALSE, includes 'NA' as a taxonomic term in the output.}
+\item{ignore_na}{TRUE/FALSE, default FALSE. If TRUE, excludes ASVs without assigned taxonomic term in the output.}
 
 \item{silent}{TRUE/FALSE, default TRUE. If FALSE, prints the top n taxonomix terms as a message.}
 }
