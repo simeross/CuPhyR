@@ -19,11 +19,12 @@
 root_tree_in_outgroup <- function(physeq = ps){
   if(requireNamespace(c("ape", "data.table"), quietly = TRUE)){
     phylo_tree <- phyloseq::phy_tree(physeq)
+    tips <- ape::Ntip(phylo_tree)
     tree_data <- cbind(
         data.table::data.table(phylo_tree$edge),
         data.table::data.table(length = phylo_tree$edge.length)
-      )[1:ape::Ntip(phylo_tree)] %>%
-      cbind(data.table(id = phylo_tree$tip.label))
+      )[1:tips] %>%
+      cbind(data.table::data.table(id = phylo_tree$tip.label))
     # longest terminal branch as outgroup
     out_group <- tree_data[which.max(length)]$id
     new_tree <- ape::root(phylo_tree, outgroup=out_group, resolve.root=TRUE)
