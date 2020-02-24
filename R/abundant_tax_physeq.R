@@ -55,13 +55,13 @@ abundant_tax_physeq <- function(physeq = ps, lvl="Class", top=10, output_format=
   #Return based on output_format
   if(output_format=="ps"){
     #Loop through all elements in top_x and extract the ASVs corresponding to the top n taxgroups at lvl from the specified physeq object. Then prune physeq.
-    toptaxASVs <- ps_tbl %>%
+    toptaxASVs <- suppressWarnings(ps_tbl %>%
                   dplyr::group_by(OTU, !!lvlx) %>%
                   dplyr::summarise() %>%
                   dplyr::filter(!!lvlx %in% top_x) %>%
                   dplyr::select(OTU) %>%
                   unlist() %>%
-                  as.character()
+                  as.character())
     ps_topnt <- phyloseq::prune_taxa(toptaxASVs, physeq)
     return(ps_topnt)
   }
@@ -73,13 +73,13 @@ abundant_tax_physeq <- function(physeq = ps, lvl="Class", top=10, output_format=
     warning("Choose \"ps\" or \"tops\" for output_format! ", output_format, " is not a legitimate value.
             Phyloseq object returned as default")
     #Loop through all elements in top_x and extract the ASVs corresponding to the top n taxgroups at lvl from the specified physeq object. Then prune physeq.
-    toptaxASVs <- ps_tbl %>%
+    toptaxASVs <- suppressWarnings(ps_tbl %>%
                   dplyr::group_by(OTU, !!lvlx) %>%
                   dplyr::summarise() %>%
                   dplyr::filter(!!lvlx %in% top_x) %>%
                   dplyr::select(OTU) %>%
                   unlist() %>%
-                  as.character()
+                  as.character())
     ps_topnt <- phyloseq::prune_taxa(toptaxASVs, physeq)
     return(ps_topnt)
   }
