@@ -1,7 +1,7 @@
 # CuPhyR
 
 This repository contains the R package CuPhyR (Custom Phyloseq R package). 
-The package gives customized shortcuts for tidyverse and phyloseq for interacting with 
+The package gives customized shortcuts for interacting with 
 phyloseq class objects generated with the [Phyloseq package by Paul J. McMurdie](https://joey711.github.io/phyloseq/).
 Since it is tested and developed with ASV data from the [dada2 package by Bejamin Callahan](https://benjjneb.github.io/dada2/index.html), 
 the function names are referring to ASVs instead of 'taxa' (phyloseq terminology). 
