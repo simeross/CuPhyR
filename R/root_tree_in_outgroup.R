@@ -25,7 +25,9 @@ root_tree_in_outgroup <- function(physeq = ps){
         data.table::data.table(length = phylo_tree$edge.length))[1:tips,]
     tree_data <- base::cbind(tree_data, data.table::data.table(id = phylo_tree$tip.label))
     # longest terminal branch as outgroup
-    out_group <- tree_data[which.max(length),]$id
+    out_group <- dplyr::slice(tree_data, which.max(length)) %>%
+                  select(id) %>%
+                  as.character()
     new_tree <- ape::root(phylo_tree, outgroup=out_group, resolve.root=TRUE)
     message("Tree successfully rooted.")
   }else{
