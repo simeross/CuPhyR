@@ -27,6 +27,9 @@ abundant_tax_physeq <- function(physeq = ps, lvl="Class", top=10, output_format=
             and call it 'ps_tbl' using \n \n
             ps_tbl <- dplyr::as_tibble(phyloseq::psmelt(ps))")
   }
+  #prune ps_tbl to taxa in physeq
+  present_taxa <- phyloseq::taxa_names(physeq)
+  ps_tbl <- dplyr::filter(ps_tbl, OTU %in% present_taxa)
   #Some quotation magic to get around the evaluation rules in the tidyverse (first unquote 'lvl', then enquo() for later evaluation with !!)
   lvlx <- dplyr::sym(lvl)
   lvlx <- dplyr::enquo(lvlx)
